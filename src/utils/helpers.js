@@ -15,5 +15,6 @@ export function formatQuestion (question, author, authedUser) {
         timestamp,
         optionOne,
         optionTwo,
+        hasReplied: optionOne.votes.includes(authedUser) || optionTwo.votes.includes(authedUser)
     }
 }

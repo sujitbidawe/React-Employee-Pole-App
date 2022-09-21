@@ -2,15 +2,18 @@ import { connect } from 'react-redux';
 import { formatQuestion, formatDate } from '../utils/helpers';
 
 const Question = (props) => {
-    
     if (props.question === null) {
         return <p>This question doesn't exist.</p>
     }
 
-    const { name, id, avatar, timestamp, optionOne, optionTwo} = props.question;
+    const { name, id, avatar, timestamp, optionOne, optionTwo, hasReplied } = props.question;
+
+    if ((props.currentTab === 'unanswered' && hasReplied) ||
+        (props.currentTab === 'answered' && !hasReplied)) {
+        return false;
+    }
 
     return (
-        
         <div className='question-container'>
             <img src={avatar} alt={avatar === null ? '' : `Avatar of ${name}`} className='avatar' />
             <div className='question-info'>
@@ -29,7 +32,7 @@ const Question = (props) => {
 
 const mapStateToProps = ({ authedUser, users, questions }, { id }) => {
     const question = questions[id];
-    
+
     return {
         authedUser,
         question: question ? formatQuestion(question, users[question.author], authedUser) : null

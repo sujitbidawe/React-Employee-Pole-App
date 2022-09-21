@@ -122,3 +122,10 @@ code {
 ul {
 	list-style-type: none;
 }
+
+.tabs-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 20px auto;
+}
