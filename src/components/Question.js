@@ -14,7 +14,7 @@ const Question = (props) => {
     }
 
     return (
-        <div className='question-container'>
+        <li className='question-container'>
             <img src={avatar} alt={avatar === null ? '' : `Avatar of ${name}`} className='avatar' />
             <div className='question-info'>
                 <div>
@@ -26,7 +26,7 @@ const Question = (props) => {
                 </div>
             </div>
             <button className='primary-button'>Poll</button>
-        </div>
+        </li>
     )
 }
 

@@ -14,21 +14,24 @@ const Dashboard = (props) => {
     return (
         <div>
             <div className="tabs-container">
+                <h1>
+                    {
+                        tab === 'answered' ? 'Answered Questions' : 'Unanswered Questions'
+                    }
+                </h1>
                 <button
                     className="tab-nav"
                     onClick={(e) => handleTabSwitch(e)}
                 >
                     {
-                        tab === 'answered' ? 'Show Answered Questions' : 'Show Unanswered Questions'
+                        tab === 'answered' ? 'Show Unanswered Questions' : 'Show Answered Questions'
                     }
                 </button>
             </div>
             <ul className="dashboard-ist">
                 {
                     props.questionIds.map((id) => (
-                        <li key={id}>
-                            <Question id={id} currentTab={tab} />
-                        </li>
+                        <Question id={id} currentTab={tab} />
                     ))
                 }
             </ul>

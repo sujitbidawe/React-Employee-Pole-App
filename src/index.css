@@ -121,6 +121,8 @@ code {
 
 ul {
 	list-style-type: none;
+	margin: 0;
+	padding: 0;
 }
 
 .tabs-container {
@@ -128,4 +130,12 @@ ul {
 	justify-content: center;
 	align-items: center;
 	margin: 20px auto;
+}
+
+.tab-nav {
+	background: none;
+	border: none;
+	text-decoration: underline;
+	cursor: pointer;
+	margin-left: 20px;
 }
