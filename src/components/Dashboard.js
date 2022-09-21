@@ -28,7 +28,7 @@ const Dashboard = (props) => {
                     }
                 </button>
             </div>
-            <ul className="dashboard-ist">
+            <ul className="dashboard-list">
                 {
                     props.questionIds.map((id) => (
                         <Question id={id} currentTab={tab} />
