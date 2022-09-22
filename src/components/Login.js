@@ -19,7 +19,7 @@ const Login = (props) => {
 
         if (user) {
             dispatch(setAuthedUser(user))
-            navigate('/dashboard');
+            navigate('/');
         }
     }
 

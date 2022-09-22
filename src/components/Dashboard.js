@@ -20,7 +20,7 @@ const Dashboard = (props) => {
                     }
                 </h1>
                 <button
-                    className="tab-nav"
+                    className="nav-link mt-5"
                     onClick={(e) => handleTabSwitch(e)}
                 >
                     {
