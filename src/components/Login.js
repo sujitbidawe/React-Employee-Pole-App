@@ -1,39 +1,48 @@
 import { useState } from "react";
 import { connect } from "react-redux";
 import { setAuthedUser } from "../actions/authedUser";
+import { useNavigate } from "react-router-dom";
 
 const Login = (props) => {
 
+    const navigate = useNavigate();
     const { dispatch } = props;
 
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
+    const [user, setUser] = useState('');
 
-    const changeUsername = (username) => {
-        setUsername(username);
-    }
-
-    const changePassword = (pwd) => {
-        setPassword(pwd);
+    const changeUser = (e) => {
+        setUser(e);
     }
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        const user = props.users[username];
-        if (user && (user.password === password)) {
-            dispatch(setAuthedUser(user.id));
+        if (user) {
+            dispatch(setAuthedUser(user))
+            navigate('/dashboard');
         }
     }
 
     return (
         <div className="login-container">
             <h2>Login</h2>
-            <div className="login-input-container">
-                <input type='text' value={username} placeholder='username' onChange={(e) => { changeUsername(e.target.value) }} />
-                <input type='password' value={password} placeholder='password' onChange={(e) => { changePassword(e.target.value) }} />
-            </div>
-            <button type="submit" className="primary-button" disabled={username === '' || password === ''} onClick={(e) => handleSubmit(e)}>Login</button>
+            <select
+                onChange={(e) => changeUser(e.target.value)}>
+                <option value=''>Select User</option>
+                {
+                    Object.keys(props.users).map((user) => {
+                        return (
+                            <option
+                                key={props.users[user].id}
+                                value={props.users[user].id}
+                            >
+                                {props.users[user].name}
+                            </option>
+                        )
+                    })
+                }
+            </select>
+            <button type="submit" className="primary-button" disabled={user === ''} onClick={(e) => handleSubmit(e)}>Login</button>
         </div>
     )
 }
