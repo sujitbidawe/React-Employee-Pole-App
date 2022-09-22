@@ -32,15 +32,17 @@ const App = (props) => {
 				}
 				{
 					props.loading ? null :
-					<Routes>
-						<Route exact path="login" element={<Login />} />
-						<Route element={<ProtectedRoute user={props.authedUser} />}>
-							<Route exact path="/" element={<Dashboard />} />
-							<Route exact path="/leaderboard" element={<Leaderboard />} />
-							<Route exact path="/new" element={<NewQuestion />} />
-						</Route>
-						<Route path="*" className='container' element={<p>There's nothing here: 404!</p>} />
-					</Routes>
+					<div className='mt-60'>
+						<Routes>
+							<Route exact path="login" element={<Login />} />
+							<Route element={<ProtectedRoute user={props.authedUser} />}>
+								<Route exact path="/" element={<Dashboard />} />
+								<Route exact path="/leaderboard" element={<Leaderboard />} />
+								<Route exact path="/new" element={<NewQuestion />} />
+							</Route>
+							<Route path="*" className='container' element={<p>There's nothing here: 404!</p>} />
+						</Routes>
+					</div>
 				}
 			</div>
 		</Fragment>

@@ -189,6 +189,8 @@ select {
 }
 
 .nav {
+	position: fixed;
+	top: 0;
 	width: 100%;
 	display: flex;
 	justify-content: space-around;
@@ -199,4 +201,8 @@ select {
 
 .mt-5{
 	margin-top: 5px;
+}
+
+.mt-60{
+	margin-top: 60px;
 }
