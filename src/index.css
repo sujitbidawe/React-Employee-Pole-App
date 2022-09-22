@@ -86,13 +86,13 @@ code {
 }
 
 .primary-button {
-	background: #8E9AAF none repeat scroll 0 0;
+	background: #99909f none repeat scroll 0 0;
 	border-color: #8E9AAF;
 	color: #ffffff;
 	font-size: 14px;
 	width: 100px;
 	height: 40px;
-	line-height: 40px;
+	line-height: 36px;
 	padding: 0;
 	cursor: pointer;
 }
@@ -147,11 +147,12 @@ ul {
 	margin-left: 20px;
 	color: #595555;
 	font-size: 16px;
+	font-weight: 500;
 }
 
 .nav-link.active{
 	color: #3d3b3b;
-	font-weight: bolder;
+	font-weight: 900;
 }
 
 .login-container {
@@ -196,7 +197,7 @@ select {
 	justify-content: space-around;
 	align-items: center;
 	padding: 20px;
-	background-color: #e1e1e1a3;
+	background-color: #feeafaa3;
 }
 
 .mt-5{
