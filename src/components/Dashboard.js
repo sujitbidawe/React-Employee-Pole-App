@@ -31,7 +31,7 @@ const Dashboard = (props) => {
             <ul className="dashboard-list">
                 {
                     props.questionIds.map((id) => (
-                        <Question id={id} currentTab={tab} />
+                        <Question key={id} id={id} currentTab={tab} />
                     ))
                 }
             </ul>

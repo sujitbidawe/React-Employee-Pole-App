@@ -1,24 +1,38 @@
 import './App.css';
-import { useEffect } from "react";
+import { useEffect, Fragment } from "react";
 import { connect } from "react-redux";
+import { Routes, Route } from 'react-router-dom';
 import { handleInitialData } from './actions/shared';
 import Dashboard from './components/Dashboard';
 import Login from './components/Login';
+import ProtectedRoute from './components/ProtectedRoute';
 
 const App = (props) => {
-	  useEffect(() => {
+	useEffect(() => {
 		  props.dispatch(handleInitialData());
 	}, [])
 
 	return <div>
-		{
-			props.loading === true ? null : <Login />
-		}
+		<Fragment>
+			<div className="container">
+				{
+					<Routes>
+						<Route index element={<Login />} />
+						<Route path="login" element={<Login />} />
+						<Route element={<ProtectedRoute user={props.authedUser} />}>
+							<Route path="dashboard" element={<Dashboard />} />
+						</Route>
+						<Route path="*" className='container' element={<p>There's nothing here: 404!</p>} />
+					</Routes>
+				}
+			</div>
+		</Fragment>
 	</div>;
 };
 
 const mapStateToProps = ({authedUser}) => ({
-	loading: authedUser === null
+	loading: authedUser === null,
+	authedUser
 })
 
-export default connect()(App);
+export default connect(mapStateToProps)(App);
