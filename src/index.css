@@ -5,6 +5,7 @@ body {
 		sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	color: #3d3b3b;
 }
 
 code {
@@ -96,6 +97,12 @@ code {
 	cursor: pointer;
 }
 
+button:disabled {
+	opacity: 0.4;
+	pointer-events: none;
+	cursor: default;
+}
+
 .new-question {
 	width: 100%;
 	max-width: 590px;
@@ -138,4 +145,26 @@ ul {
 	text-decoration: underline;
 	cursor: pointer;
 	margin-left: 20px;
+}
+
+.login-container {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	flex-direction: column;
+	width: 350px;
+	height: 400px;
+	margin: 50px auto;
+	box-shadow: 1px 1px 3px 3px #8E9AAF;
+}
+
+.login-input-container {
+	display: flex;
+	flex-direction: column;
+}
+
+input {
+	height: 40px;
+	width: 200px;
+	margin-bottom: 10px;
 }

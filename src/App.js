@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { connect } from "react-redux";
 import { handleInitialData } from './actions/shared';
 import Dashboard from './components/Dashboard';
+import Login from './components/Login';
 
 const App = (props) => {
 	  useEffect(() => {
@@ -11,7 +12,7 @@ const App = (props) => {
 
 	return <div>
 		{
-			props.loading === true ? null : <Dashboard />
+			props.loading === true ? null : <Login />
 		}
 	</div>;
 };
