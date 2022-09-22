@@ -7,7 +7,7 @@ const Nav = ({ currentUser, logout }) => {
             <div>
                 <NavLink to='/' end className='nav-link'>Home</NavLink>
                 <NavLink to='/leaderboard' end className='nav-link'>Leaderboard</NavLink>
-                <NavLink to='/new' end className='nav-link'>New Question</NavLink>
+                <NavLink to='/add' end className='nav-link'>New Question</NavLink>
             </div>
             <div>
                 <span>

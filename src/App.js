@@ -38,7 +38,7 @@ const App = (props) => {
 							<Route element={<ProtectedRoute user={props.authedUser} />}>
 								<Route exact path="/" element={<Dashboard />} />
 								<Route exact path="/leaderboard" element={<Leaderboard />} />
-								<Route exact path="/new" element={<NewQuestion />} />
+								<Route exact path="/add" element={<NewQuestion />} />
 							</Route>
 							<Route path="*" className='container' element={<p>There's nothing here: 404!</p>} />
 						</Routes>
