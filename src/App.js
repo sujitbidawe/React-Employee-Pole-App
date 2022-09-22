@@ -6,6 +6,7 @@ import { handleInitialData } from './actions/shared';
 import Dashboard from './components/Dashboard';
 import Login from './components/Login';
 import ProtectedRoute from './components/ProtectedRoute';
+import LoadingBar from "react-redux-loading-bar";
 
 const App = (props) => {
 	useEffect(() => {
@@ -14,8 +15,10 @@ const App = (props) => {
 
 	return <div>
 		<Fragment>
+			<LoadingBar />
 			<div className="container">
 				{
+					props.loading ? null :
 					<Routes>
 						<Route index element={<Login />} />
 						<Route exact path="login" element={<Login />} />
@@ -30,8 +33,8 @@ const App = (props) => {
 	</div>;
 };
 
-const mapStateToProps = ({authedUser}) => ({
-	loading: authedUser === null,
+const mapStateToProps = ({authedUser, users}) => ({
+	loading: JSON.stringify(users) === JSON.stringify({}),
 	authedUser
 })
 
