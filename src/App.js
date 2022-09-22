@@ -18,9 +18,9 @@ const App = (props) => {
 				{
 					<Routes>
 						<Route index element={<Login />} />
-						<Route path="login" element={<Login />} />
+						<Route exact path="login" element={<Login />} />
 						<Route element={<ProtectedRoute user={props.authedUser} />}>
-							<Route path="dashboard" element={<Dashboard />} />
+							<Route exact path="dashboard" element={<Dashboard />} />
 						</Route>
 						<Route path="*" className='container' element={<p>There's nothing here: 404!</p>} />
 					</Routes>
