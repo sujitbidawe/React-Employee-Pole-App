@@ -6,9 +6,9 @@ import { showLoading, hideLoading } from 'react-redux-loading-bar';
 export function handleInitialData() {
     return (dispatch) => {
         dispatch(showLoading());
-        return getInitialData().then(({users, tweets}) => {
+        return getInitialData().then(({ users, questions }) => {
             dispatch(receiveUsers(users));
-            dispatch(receiveQuestions(tweets));
+            dispatch(receiveQuestions(questions));
             dispatch(hideLoading());
         })
     }
