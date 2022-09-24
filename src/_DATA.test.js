@@ -2,8 +2,8 @@ import { _saveQuestion, _saveQuestionAnswer } from "./utils/_DATA";
 
 describe('_saveQuestion', () => {
 
-    it('_saveQuestion will save question and return true when correct data is passed', async() => {
-        const res = await _saveQuestion({author: 'sarahedo', optionOneText: 'i am option one', optionTwoText: 'i am option two' });
+    it('_saveQuestion will save question and return true when correct data is passed', async () => {
+        const res = await _saveQuestion({ author: 'sarahedo', optionOneText: 'i am option one', optionTwoText: 'i am option two' });
         expect(res.author).toBe('sarahedo');
     });
 
@@ -15,8 +15,8 @@ describe('_saveQuestion', () => {
 
 describe('_saveQuestionAnswer', () => {
 
-    it('_saveQuestionAnswer will return true if correct data is passed', async() => {
-        await expect(_saveQuestionAnswer({authedUser: 'sarahedo', qid: '15tikchyvgcos16odwtslm', answer: 'optionOne' })).toBeTruthy();
+    it('_saveQuestionAnswer will return true if correct data is passed', async () => {
+        await expect(_saveQuestionAnswer({ authedUser: 'sarahedo', qid: '15tikchyvgcos16odwtslm', answer: 'optionOne' })).toBeTruthy();
     });
 
 
