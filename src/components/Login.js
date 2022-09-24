@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { setAuthedUser } from "../actions/authedUser";
 import { useNavigate } from "react-router-dom";
+import history from "../history";
 
 const Login = (props) => {
 
@@ -19,7 +20,11 @@ const Login = (props) => {
 
         if (user) {
             dispatch(setAuthedUser(user))
-            navigate('/');
+            if (history.location.pathname !== '') {
+                navigate(history.location.pathname);
+            } else {
+                navigate('/');
+            }
         }
     }
 
@@ -47,8 +52,9 @@ const Login = (props) => {
     )
 }
 
-const mapStateToProps = ({ users }) => ({
-    users
+const mapStateToProps = ({ users, authedUser }) => ({
+    users,
+    authedUser
 })
 
 export default connect(mapStateToProps)(Login);
