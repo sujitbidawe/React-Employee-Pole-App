@@ -1,7 +1,11 @@
 import { connect } from 'react-redux';
 import { formatQuestion, formatDate } from '../utils/helpers';
+import { useNavigate } from 'react-router-dom';
 
 const Question = (props) => {
+
+    const navigate = useNavigate();
+
     if (props.question === null) {
         return <p>This question doesn't exist.</p>
     }
@@ -11,6 +15,14 @@ const Question = (props) => {
     if ((props.currentTab === 'unanswered' && hasReplied) ||
         (props.currentTab === 'answered' && !hasReplied)) {
         return false;
+    }
+
+    const viewPoll = () => {
+        if (hasReplied) {
+            navigate(`/question/${id}/result`);
+        } else {
+            navigate(`/question/${id}`);
+        }
     }
 
     return (
@@ -25,7 +37,7 @@ const Question = (props) => {
                     <p>{optionTwo && optionTwo.text}</p>
                 </div>
             </div>
-            <button className='primary-button'>Poll</button>
+            <button className='primary-button' onClick={viewPoll}>Poll</button>
         </li>
     )
 }

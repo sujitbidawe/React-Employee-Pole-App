@@ -1,9 +1,10 @@
 import { showLoading, hideLoading } from "react-redux-loading-bar";
-import { _saveQuestion } from "../utils/_DATA";
-import { addQuestionToUser } from "./users";
+import { _saveQuestion, _saveQuestionAnswer } from "../utils/_DATA";
+import { addQuestionToUser, addAnswerToUser } from "./users";
 
 export const RECEIVE_QUESTIONS = 'RECEIVE_QUESTIONS';
 export const ADD_QUESTION = 'ADD_QUESTION';
+export const ADD_ANSWER = 'ADD_ANSWER';
 
 export function receiveQuestions(questions) {
     return {
@@ -16,6 +17,13 @@ export function addQuestion(question) {
     return {
         type: ADD_QUESTION,
         question
+    }
+}
+
+export function addAnswer(answer) {
+    return {
+        type: ADD_ANSWER,
+        answer
     }
 }
 
@@ -32,6 +40,27 @@ export function handleAddQuestion(questionObj) {
             .then((question) => {
                 dispatch(addQuestion(question))
                 dispatch(addQuestionToUser(question))
+            })
+            .then(() => dispatch(hideLoading()))
+    }
+}
+
+export function handleAddAnswer(answerObj) {
+    return (dispatch, getState) => {
+        const { authedUser } = getState();
+
+        dispatch(showLoading());
+
+        const dataObj = {
+            authedUser,
+            qid: answerObj.id,
+            answer: answerObj.optionSelected
+        }
+
+        return _saveQuestionAnswer(dataObj)
+            .then((answer) => {
+                dispatch(addAnswer(dataObj))
+                dispatch(addAnswerToUser(dataObj))
             })
             .then(() => dispatch(hideLoading()))
     }

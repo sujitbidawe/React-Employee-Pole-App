@@ -11,6 +11,8 @@ import LoadingBar from "react-redux-loading-bar";
 import Nav from './components/Nav';
 import Leaderboard from './components/Leaderboard';
 import NewQuestion from './components/NewQuestion';
+import PollForm from './components/PollForm';
+import PollResult from './components/PollResult';
 
 const App = (props) => {
 	useEffect(() => {
@@ -39,6 +41,8 @@ const App = (props) => {
 								<Route exact path="/" element={<Dashboard />} />
 								<Route exact path="/leaderboard" element={<Leaderboard />} />
 								<Route exact path="/add" element={<NewQuestion />} />
+								<Route exact path="/question/:id" element={<PollForm />} />
+								<Route exact path="/question/:id/result" element={<PollResult />} />
 							</Route>
 							<Route path="*" className='container' element={<p>There's nothing here: 404!</p>} />
 						</Routes>

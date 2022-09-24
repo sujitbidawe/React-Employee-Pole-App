@@ -241,6 +241,41 @@ select {
 	justify-content: space-between;
 }
 
+.m-5 {
+	margin: 5px;
+}
+
 .mb-10 {
 	margin-bottom: 10px;
+}
+
+.align-left {
+	display: flex;
+}
+
+input.radio-input {
+	height: 15px;
+	width: 15px;
+	min-width: 15px;
+	margin-bottom: 0px;
+}
+
+.poll-container {
+	align-items: inherit;
+}
+
+.row {
+	flex-direction: row;
+}
+
+label {
+	color: #3d3b3b;
+}
+
+.flex-start {
+	justify-content: flex-start;
+}
+
+.align-center {
+	align-items: center;
 }
