@@ -1,9 +1,22 @@
 import { connect } from "react-redux";
 import { useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
+import PagenotFound from "./Pagenotfound";
 
 const PollResult = (props) => {
 
     let { id } = useParams();
+    const [continueRendering, setContinueRendering] = useState(false);
+
+    useEffect(() => {
+        if (props.questions[id]) {
+            setContinueRendering(true)
+        }
+    }, [])
+
+    if (!continueRendering) {
+        return <PagenotFound />
+    }
 
     const resultDataObj = {
         authorId: props.questions[id].author,

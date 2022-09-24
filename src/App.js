@@ -13,6 +13,7 @@ import Leaderboard from './components/Leaderboard';
 import NewQuestion from './components/NewQuestion';
 import PollForm from './components/PollForm';
 import PollResult from './components/PollResult';
+import PagenotFound from './components/Pagenotfound';
 
 const App = (props) => {
 	useEffect(() => {
@@ -44,7 +45,7 @@ const App = (props) => {
 								<Route exact path="/question/:id" element={<PollForm />} />
 								<Route exact path="/question/:id/result" element={<PollResult />} />
 							</Route>
-							<Route path="*" className='container' element={<p>There's nothing here: 404!</p>} />
+							<Route path="*" className='container' element={<PagenotFound />} />
 						</Routes>
 					</div>
 				}

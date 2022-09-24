@@ -1,16 +1,26 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { useParams, useNavigate } from 'react-router-dom';
 import { RadioGroup, Radio } from 'react-radio-group';
 import { handleAddAnswer } from "../actions/questions";
+import PagenotFound from "./Pagenotfound";
 
 const PollForm = (props) => {
-
     let { id } = useParams();
     const navigate = useNavigate();
 
+    const [continueRendering, setContinueRendering] = useState(false);
     const [optionSelected, setOptionSelected] = useState('');
 
+    useEffect(() => {
+        if (props.questions[id]) {
+            setContinueRendering(true)
+        }
+    }, [])
+
+    if (!continueRendering) {
+        return <PagenotFound />
+    }
 
     const questionDataObj = {
         authorId: props.questions[id].author,
