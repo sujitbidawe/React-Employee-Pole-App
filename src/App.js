@@ -17,7 +17,7 @@ import PollResult from './components/PollResult';
 const App = (props) => {
 	useEffect(() => {
 		  props.dispatch(handleInitialData());
-	}, [])
+	})
 
 	const logout = (e) => {
 		e.preventDefault();
