@@ -279,3 +279,15 @@ label {
 .align-center {
 	align-items: center;
 }
+
+.p-10 {
+	padding: 10px;
+}
+
+.min-width-350 {
+	min-width: 350px;
+}
+
+.vote {
+	background-color: #DEE2FF;
+}
