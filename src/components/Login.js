@@ -9,6 +9,12 @@ const Login = (props) => {
     const navigate = useNavigate();
     const { dispatch } = props;
 
+    useEffect(() => {
+        if (props.authedUser !== '') {
+            navigate('/')
+        }
+    })
+
     const [user, setUser] = useState('');
 
     const changeUser = (e) => {
