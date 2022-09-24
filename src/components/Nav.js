@@ -5,9 +5,9 @@ const Nav = ({ currentUser, logout }) => {
     return (
         <div className="nav">
             <div>
-                <NavLink to='/' end className='nav-link'>Home</NavLink>
-                <NavLink to='/leaderboard' end className='nav-link'>Leaderboard</NavLink>
-                <NavLink to='/add' end className='nav-link'>New Question</NavLink>
+                <NavLink data-testid='nav-link' to='/' end className='nav-link'>Home</NavLink>
+                <NavLink data-testid='nav-link' to='/leaderboard' end className='nav-link'>Leaderboard</NavLink>
+                <NavLink data-testid='nav-link' to='/add' end className='nav-link'>New Question</NavLink>
             </div>
             <div>
                 <span>
